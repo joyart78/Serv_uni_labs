@@ -1,0 +1,31 @@
+.container {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.info_card {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    max-width: 300px;
+    background-color: #859c8f;
+    color: #04202c;
+}
+
+.info_row {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.label {
+    font-weight: 510;
+}
+
+.error_message {
+    color: #d32f2f;
+    padding: 15px;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+}

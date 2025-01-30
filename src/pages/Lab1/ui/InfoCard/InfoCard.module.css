@@ -9,14 +9,15 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     max-width: 300px;
-    background-color: #859c8f;
-    color: #04202c;
+    background-color: #d8c3a5;
+    color: black;
 }
 
 .info_row {
     margin: 10px 0;
     display: flex;
     justify-content: space-between;
+    gap: 5px;
 }
 
 .label {

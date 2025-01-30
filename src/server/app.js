@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import cors from "cors";
 import infoRoutes from "./routes/infoRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import { createCookie } from "react-router-dom";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -12,6 +14,7 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
 // MongoDB Connection
 mongoose

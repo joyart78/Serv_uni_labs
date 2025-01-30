@@ -7,7 +7,6 @@ export class AuthDTO {
   toResource() {
     return {
       email: this.email,
-      // Другие поля при необходимости
     };
   }
 }

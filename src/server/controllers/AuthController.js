@@ -7,6 +7,10 @@ export class AuthController {
     try {
       const registerDTO = new RegisterDTO(req.body);
       const user = await AuthService.register(registerDTO);
+      res.cookie("refreshToken", user.token, {
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+        httpOnly: true,
+      });
       return res.status(201).json(new UserDTO(user).toResource());
     } catch (error) {
       res.status(400).json({ error: error.message });

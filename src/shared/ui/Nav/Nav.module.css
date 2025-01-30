@@ -4,10 +4,14 @@
     display: flex;
     justify-content: center;
 }
+.nav_list {
+    display: flex;
+    flex-direction: row;
+}
 
 .link {
     text-decoration: none;
-    color: #04202c;
+    color: black;
     margin: 0 30px;
 }
 .link:hover {

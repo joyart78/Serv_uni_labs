@@ -7,10 +7,15 @@ export default function Nav() {
 
   return (
     <nav>
-      <ul>
+      <ul className={styles.nav_list}>
         <li className={styles.nav_item}>
           <NavLink to="/lab1" className={setActive}>
             Lab1
+          </NavLink>
+        </li>
+        <li className={styles.nav_item}>
+          <NavLink to="/lab2" className={setActive}>
+            Lab2
           </NavLink>
         </li>
       </ul>

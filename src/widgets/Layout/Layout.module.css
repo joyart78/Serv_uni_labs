@@ -1,5 +1,5 @@
 header {
-    background-color: #304040;
+    background-color: #e98074;
 }
 .header_container {
     display: flex;
@@ -20,5 +20,5 @@ header {
 }
 .window_container {
     height: 100vh;
-    background-color: #C9D1C8;
+    background-color: #f7f5e7;
 }

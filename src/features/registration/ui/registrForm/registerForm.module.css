@@ -1,0 +1,220 @@
+/* Основные стили */
+.authContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f7f5e7;
+    padding: 2rem;
+}
+
+.authForm {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 440px;
+    transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
+}
+
+.authForm::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(45deg);
+    animation: shine 6s infinite;
+}
+
+@keyframes shine {
+    0% { transform: rotate(45deg) translateX(-150%); }
+    100% { transform: rotate(45deg) translateX(150%); }
+}
+
+.formTitle {
+    color: #2d3748;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    position: relative;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Группы полей ввода */
+.inputGroup {
+    margin-bottom: 1.8rem;
+    position: relative;
+}
+
+.inputLabel {
+    display: block;
+    color: #4a5568;
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding-left: 0.3rem;
+}
+
+.formInput {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #f8fafc;
+}
+
+.formInput:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 4px 6px -1px rgba(102, 126, 234, 0.1),
+    0 2px 4px -1px rgba(102, 126, 234, 0.06);
+    background: white;
+}
+
+.formInput::placeholder {
+    color: #a0aec0;
+    opacity: 0.8;
+}
+
+/* Индикатор сложности пароля */
+.passwordStrength {
+    height: 4px;
+    border-radius: 2px;
+    margin-top: 0.5rem;
+    transition: all 0.3s;
+}
+
+/* Кнопка регистрации */
+.submitButton {
+    width: 100%;
+    padding: 1.1rem;
+    background: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.submitButton::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.15), transparent);
+    transform: rotate(45deg);
+    animation: shine 6s infinite;
+}
+
+.submitButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(102, 126, 234, 0.3),
+    0 4px 6px -2px rgba(102, 126, 234, 0.15);
+}
+
+.submitButton:disabled {
+    background: #cbd5e0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+/* Сообщение об ошибке */
+.errorMessage {
+    color: #e53e3e;
+    background: linear-gradient(90deg, #fff5f5, #fff);
+    padding: 1.2rem;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    border: 2px solid #fed7d7;
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
+
+/* Ссылки */
+.authLinks {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #edf2f7;
+}
+
+.authLink {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
+    display: inline-block;
+}
+
+.authLink:hover {
+    color: #764ba2;
+    transform: translateY(-1px);
+}
+
+.authLink::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #764ba2;
+    transition: width 0.3s;
+}
+
+.authLink:hover::after {
+    width: 100%;
+}
+
+/* Иконки в полях ввода */
+.inputGroup::after {
+    content: '';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    opacity: 0.5;
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .authForm {
+        padding: 1.5rem;
+        border-radius: 15px;
+    }
+
+    .formTitle {
+        font-size: 1.75rem;
+    }
+
+    .submitButton {
+        padding: 1rem;
+    }
+}

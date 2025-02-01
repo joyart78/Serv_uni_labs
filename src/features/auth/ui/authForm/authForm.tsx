@@ -2,12 +2,16 @@ import { useLoginMutation } from "@/features/auth/api/authApi/authApi.ts";
 import React, { useState } from "react";
 import styles from "./authForm.module.css";
 import Loader from "@/shared/ui/Loader/Loader.tsx";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUser } from "@/pages/Lab2/slice/slice.ts";
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const [login, { isLoading, error }] = useLoginMutation();
   const [emailInput, setEmailInput] = useState<string>("");
   const [registerInput, setRegisterInput] = useState<string>("");
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,6 +24,8 @@ const LoginForm = () => {
     try {
       const data = await login(credentials).unwrap();
       localStorage.setItem("token", data.accessToken);
+      dispatch(setUser(credentials.email));
+      navigate("/lab2");
       console.log("Login successful:", data);
     } catch (err) {
       console.error("Login failed:", err);
@@ -77,9 +83,6 @@ const LoginForm = () => {
           <NavLink to="/register" className={styles.authLink}>
             Зарегистрироваться
           </NavLink>
-          <a href="#" className={styles.authLink}>
-            Забыли пароль?
-          </a>
         </div>
 
         {error && <div className={styles.errorMessage}>⚠️ Login failed</div>}

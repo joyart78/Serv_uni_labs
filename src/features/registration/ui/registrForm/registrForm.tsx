@@ -40,7 +40,7 @@ const RegisterForm = () => {
             name="email"
             type="email"
             className={styles.formInput}
-            placeholder="Enter your email"
+            placeholder="Введите свою почту"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -86,13 +86,13 @@ const RegisterForm = () => {
               <Loader />
             </div>
           ) : (
-            "Register"
+            "Зарегистрироваться"
           )}
         </button>
 
         <div className={styles.authLinks}>
           <NavLink to="/auth" className={styles.authLink}>
-            Already have an account? Login
+            Уже есть аккаунт? Войти
           </NavLink>
         </div>
 
